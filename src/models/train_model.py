@@ -3,7 +3,7 @@ from torchvision import models
 import torch.nn as nn
 import torch.optim as optim
 
-def train_model(train_loader, val_loader, num_epochs=10, learning_rate=0.001):
+def train_model(train_loader, val_loader, model_dir, num_epochs=10, learning_rate=0.001):
     # Check if GPU is available and if not, fall back on CPU
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -63,6 +63,6 @@ def train_model(train_loader, val_loader, num_epochs=10, learning_rate=0.001):
             epoch_acc = running_corrects.double() / dataset_size
 
             print(f'{phase} Loss: {epoch_loss:.4f} Acc: {epoch_acc:.4f}')
-        torch.save(model.state_dict(), f'/Projects/protein-rimeter/models/resnet_{epoch}.pth')
+        torch.save(model.state_dict(), f'{model_dir}/resnet_{epoch}.pth')
 
     return model

@@ -1,0 +1,7 @@
+chicken_wings
+steak
+grilled_salmon
+pork_chop
+hot_dog
+hamburger
+fish_and_chips
